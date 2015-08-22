@@ -33,10 +33,14 @@ $(document).ready(function(){
 		// alpha is the compass direction the device is facing in degrees
 		var dir = eventData.alpha;
 
-		data.x = 200;
-		data.y = 200;
+		data.x = (tiltFB*10) + 200;
+		data.y = tiltLR + 200;
 		data.rotate = dir;
 		socket.emit('send', data);
+
+		document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
+		document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
+		document.getElementById("doDirection").innerHTML = Math.round(dir);
 
 		/*document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
 		document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
