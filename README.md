@@ -1,4 +1,4 @@
-## What?
+## About
 
 This repository is a bunch of projects i've been trying out in ThreeJS and SocketIO
 

@@ -4,7 +4,6 @@
     "description": "Real time web game",
     "dependencies": {
         "express": "latest",
-        "jade": "latest",
         "socket.io": "latest"
     },
     "author": "varun1505"
