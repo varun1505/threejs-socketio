@@ -18,7 +18,7 @@ $(document).ready(function(){
 
 	var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 
-	cube.rotation.y = Math.PI * 45 / 180;
+	//cube.rotation.y = Math.PI * 45 / 180;
 
 	scene.add(cube);
 
@@ -39,9 +39,9 @@ $(document).ready(function(){
 
 	function render() {
 		renderer.render(scene, camera);
-		cube.rotation.y = tiltLR / 10;
-		cube.rotation.x = tiltFB / 100;
-		//cube.rotation.z = dir;
+		cube.rotation.x = tiltLR / 10;
+		cube.rotation.y = tiltFB / 10;
+		// cube.rotation.z = dir / 10;
 		requestAnimationFrame(render);
 	}
 
