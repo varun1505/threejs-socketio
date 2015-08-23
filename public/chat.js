@@ -1,23 +1,22 @@
 $(document).ready(function(){
-	var socket = io.connect('http://1.1.1.23:3700');
 	var data = {};
 	$('#block').draggable({
 		drag: function(event, ui){
 			data.x = ui.position.left;
 			data.y = ui.position.top;
-			data.rotate = 0;
+			data.z = 0;
 			socket.emit('send', data);
 		}
 	});
 
 	var socket = io.connect('http://1.1.1.23:3700');
 
-	socket.on('notif', function(data){
+	socket.on('notif', function(data){		
 		console.log(data);
 		console.log("X: " + data.x + "  --  Y: " + data.y);
-		$('#block').css('left', data.x + 'px');
-		$('#block').css('top', data.y + 'px');
-		$('#block').rotate(data.rotate);
+		$('#block').css('left', parseInt(data.y + 1000) + 'px');
+		$('#block').css('top', data.x + 'px');
+		$('#block').rotate(data.z);
 	});
 
 
@@ -35,7 +34,7 @@ $(document).ready(function(){
 
 		data.x = (tiltFB*10) + 200;
 		data.y = tiltLR + 200;
-		data.rotate = dir;
+		data.z = dir;
 		socket.emit('send', data);
 
 		document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);

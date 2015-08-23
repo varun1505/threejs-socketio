@@ -31,6 +31,12 @@ io.sockets.on('connection', function (socket) {
         console.log(data);
         io.emit('notif', data);
     });
+
+    socket.on('watch', function(data) {
+        console.log('Mobile Data:');
+        console.log(data);
+        io.emit('notif', JSON.parse(data));
+    });
 });
 
 console.log("Listening on port " + port);
